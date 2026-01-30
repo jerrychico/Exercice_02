@@ -45,15 +45,7 @@
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.dtCommandesDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtCommandesDataTableDataGridView = new System.Windows.Forms.DataGridView();
-            this.OrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RequiredDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Freight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DelaiLivraison = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Vendeur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taClientsTableAdapter = new Exercice_02.dsClientCommandeDataSetTableAdapters.taClientsTableAdapter();
             this.tableAdapterManager = new Exercice_02.dsClientCommandeDataSetTableAdapters.TableAdapterManager();
             this.taCommandesTableAdapter = new Exercice_02.dsClientCommandeDataSetTableAdapters.taCommandesTableAdapter();
@@ -61,6 +53,15 @@
             this.companyNameTextBox = new System.Windows.Forms.TextBox();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.countryTextBox = new System.Windows.Forms.TextBox();
+            this.OrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RequiredDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Freight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DelaiLivraison = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vendeur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtCommandesDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             customerIDLabel = new System.Windows.Forms.Label();
             companyNameLabel = new System.Windows.Forms.Label();
             phoneLabel = new System.Windows.Forms.Label();
@@ -69,8 +70,8 @@
             this.dtClientsDataTableBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtClientsDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsClientCommandeDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCommandesDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCommandesDataTableDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCommandesDataTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // customerIDLabel
@@ -78,7 +79,7 @@
             customerIDLabel.AutoSize = true;
             customerIDLabel.Location = new System.Drawing.Point(12, 51);
             customerIDLabel.Name = "customerIDLabel";
-            customerIDLabel.Size = new System.Drawing.Size(119, 20);
+            customerIDLabel.Size = new System.Drawing.Size(95, 16);
             customerIDLabel.TabIndex = 9;
             customerIDLabel.Text = "Code du client:";
             // 
@@ -124,7 +125,8 @@
             this.bindingNavigatorCountItem,
             this.bindingNavigatorSeparator1,
             this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem});
+            this.bindingNavigatorMoveLastItem,
+            this.toolStripButton1});
             this.dtClientsDataTableBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.dtClientsDataTableBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.dtClientsDataTableBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -132,7 +134,7 @@
             this.dtClientsDataTableBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.dtClientsDataTableBindingNavigator.Name = "dtClientsDataTableBindingNavigator";
             this.dtClientsDataTableBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.dtClientsDataTableBindingNavigator.Size = new System.Drawing.Size(792, 27);
+            this.dtClientsDataTableBindingNavigator.Size = new System.Drawing.Size(792, 31);
             this.dtClientsDataTableBindingNavigator.TabIndex = 0;
             this.dtClientsDataTableBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -149,8 +151,8 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 24);
-            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
+            this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
             // 
             // bindingNavigatorMoveFirstItem
@@ -159,7 +161,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Placer en premier";
             // 
             // bindingNavigatorMovePreviousItem
@@ -168,13 +170,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Déplacer vers le haut";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -189,7 +191,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -197,7 +199,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem.Text = "Déplacer vers le bas";
             // 
             // bindingNavigatorMoveLastItem
@@ -206,13 +208,8 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem.Text = "Placer en dernier";
-            // 
-            // dtCommandesDataTableBindingSource
-            // 
-            this.dtCommandesDataTableBindingSource.DataMember = "FK_Orders_Customers1";
-            this.dtCommandesDataTableBindingSource.DataSource = this.dtClientsDataTableBindingSource;
             // 
             // dtCommandesDataTableDataGridView
             // 
@@ -234,6 +231,52 @@
             this.dtCommandesDataTableDataGridView.Size = new System.Drawing.Size(757, 278);
             this.dtCommandesDataTableDataGridView.TabIndex = 9;
             this.dtCommandesDataTableDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtCommandesDataTableDataGridView_CellFormatting);
+            // 
+            // taClientsTableAdapter
+            // 
+            this.taClientsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.taClientsTableAdapter = this.taClientsTableAdapter;
+            this.tableAdapterManager.UpdateOrder = Exercice_02.dsClientCommandeDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // taCommandesTableAdapter
+            // 
+            this.taCommandesTableAdapter.ClearBeforeFill = true;
+            // 
+            // customerIDTextBox
+            // 
+            this.customerIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dtClientsDataTableBindingSource, "CustomerID", true));
+            this.customerIDTextBox.Location = new System.Drawing.Point(126, 48);
+            this.customerIDTextBox.Name = "customerIDTextBox";
+            this.customerIDTextBox.Size = new System.Drawing.Size(100, 22);
+            this.customerIDTextBox.TabIndex = 10;
+            // 
+            // companyNameTextBox
+            // 
+            this.companyNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dtClientsDataTableBindingSource, "CompanyName", true));
+            this.companyNameTextBox.Location = new System.Drawing.Point(126, 85);
+            this.companyNameTextBox.Name = "companyNameTextBox";
+            this.companyNameTextBox.Size = new System.Drawing.Size(100, 22);
+            this.companyNameTextBox.TabIndex = 12;
+            // 
+            // phoneTextBox
+            // 
+            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dtClientsDataTableBindingSource, "Phone", true));
+            this.phoneTextBox.Location = new System.Drawing.Point(126, 163);
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(100, 22);
+            this.phoneTextBox.TabIndex = 14;
+            // 
+            // countryTextBox
+            // 
+            this.countryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dtClientsDataTableBindingSource, "Country", true));
+            this.countryTextBox.Location = new System.Drawing.Point(126, 120);
+            this.countryTextBox.Name = "countryTextBox";
+            this.countryTextBox.Size = new System.Drawing.Size(100, 22);
+            this.countryTextBox.TabIndex = 16;
             // 
             // OrderID
             // 
@@ -297,51 +340,20 @@
             this.Vendeur.ReadOnly = true;
             this.Vendeur.Width = 125;
             // 
-            // taClientsTableAdapter
+            // dtCommandesDataTableBindingSource
             // 
-            this.taClientsTableAdapter.ClearBeforeFill = true;
+            this.dtCommandesDataTableBindingSource.DataMember = "FK_Orders_Customers1";
+            this.dtCommandesDataTableBindingSource.DataSource = this.dtClientsDataTableBindingSource;
             // 
-            // tableAdapterManager
+            // toolStripButton1
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.taClientsTableAdapter = this.taClientsTableAdapter;
-            this.tableAdapterManager.UpdateOrder = Exercice_02.dsClientCommandeDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // taCommandesTableAdapter
-            // 
-            this.taCommandesTableAdapter.ClearBeforeFill = true;
-            // 
-            // customerIDTextBox
-            // 
-            this.customerIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dtClientsDataTableBindingSource, "CustomerID", true));
-            this.customerIDTextBox.Location = new System.Drawing.Point(126, 48);
-            this.customerIDTextBox.Name = "customerIDTextBox";
-            this.customerIDTextBox.Size = new System.Drawing.Size(100, 22);
-            this.customerIDTextBox.TabIndex = 10;
-            // 
-            // companyNameTextBox
-            // 
-            this.companyNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dtClientsDataTableBindingSource, "CompanyName", true));
-            this.companyNameTextBox.Location = new System.Drawing.Point(126, 85);
-            this.companyNameTextBox.Name = "companyNameTextBox";
-            this.companyNameTextBox.Size = new System.Drawing.Size(100, 22);
-            this.companyNameTextBox.TabIndex = 12;
-            // 
-            // phoneTextBox
-            // 
-            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dtClientsDataTableBindingSource, "Phone", true));
-            this.phoneTextBox.Location = new System.Drawing.Point(126, 163);
-            this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(100, 22);
-            this.phoneTextBox.TabIndex = 14;
-            // 
-            // countryTextBox
-            // 
-            this.countryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dtClientsDataTableBindingSource, "Country", true));
-            this.countryTextBox.Location = new System.Drawing.Point(126, 120);
-            this.countryTextBox.Name = "countryTextBox";
-            this.countryTextBox.Size = new System.Drawing.Size(100, 22);
-            this.countryTextBox.TabIndex = 16;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::Exercice_02.Properties.Resources.imprimante__1_;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.imprimer);
             // 
             // Exercice02Form
             // 
@@ -366,8 +378,8 @@
             this.dtClientsDataTableBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtClientsDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsClientCommandeDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtCommandesDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtCommandesDataTableDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtCommandesDataTableBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,6 +414,7 @@
         private System.Windows.Forms.TextBox companyNameTextBox;
         private System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.TextBox countryTextBox;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 

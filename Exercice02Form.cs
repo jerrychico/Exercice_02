@@ -96,5 +96,30 @@ namespace Exercice_02
         }
         #endregion
 
+        private void imprimer(object sender, EventArgs e)
+        {
+            #region Impression
+            //Debut de la phase 2
+
+            Console.WriteLine("Clients des villes M et P et leurs commandes respectives");
+
+            //Parcourt le dataTable dtClientsDataTable
+            foreach (dsClientCommandeDataSet.dtClientsDataTableRow odtClient in dsClientCommandeDataSet.dtClientsDataTable.Rows)
+            {
+                
+                Console.WriteLine($"{odtClient.CustomerID,-10} {odtClient.CompanyName,-30} {odtClient.Country,-20} {odtClient.Phone} ");
+
+                foreach (dsClientCommandeDataSet.dtCommandesDataTableRow odtCommande in dsClientCommandeDataSet.dtCommandesDataTable.Rows)
+                {
+                    //Fait une vérification pour voir si l'id de la clé étrangère est pareille à celle de dtclientCommandes
+                    if (odtCommande.CustomerID == odtClient.CustomerID)
+                    {
+                        Console.WriteLine($"       {odtCommande.OrderID,-9} {odtCommande.OrderDate:MMMM d, yyyy}");
+                    }
+                }
+            }
+
+            #endregion
+        }
     }
 }
