@@ -78,16 +78,16 @@
             customerIDLabel.AutoSize = true;
             customerIDLabel.Location = new System.Drawing.Point(12, 51);
             customerIDLabel.Name = "customerIDLabel";
-            customerIDLabel.Size = new System.Drawing.Size(83, 16);
+            customerIDLabel.Size = new System.Drawing.Size(119, 20);
             customerIDLabel.TabIndex = 9;
-            customerIDLabel.Text = "Customer ID:";
+            customerIDLabel.Text = "Code du client:";
             // 
             // companyNameLabel
             // 
             companyNameLabel.AutoSize = true;
-            companyNameLabel.Location = new System.Drawing.Point(12, 79);
+            companyNameLabel.Location = new System.Drawing.Point(12, 88);
             companyNameLabel.Name = "companyNameLabel";
-            companyNameLabel.Size = new System.Drawing.Size(70, 20);
+            companyNameLabel.Size = new System.Drawing.Size(56, 16);
             companyNameLabel.TabIndex = 11;
             companyNameLabel.Text = "Société:";
             // 
@@ -322,7 +322,7 @@
             // companyNameTextBox
             // 
             this.companyNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dtClientsDataTableBindingSource, "CompanyName", true));
-            this.companyNameTextBox.Location = new System.Drawing.Point(126, 76);
+            this.companyNameTextBox.Location = new System.Drawing.Point(126, 85);
             this.companyNameTextBox.Name = "companyNameTextBox";
             this.companyNameTextBox.Size = new System.Drawing.Size(100, 22);
             this.companyNameTextBox.TabIndex = 12;
