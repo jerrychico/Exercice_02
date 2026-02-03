@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+   Programmeur : Dosso Ibrahima Elimane
+                 Haba Jean de croix
+                 Douanla Dountio Jerry Bostel
+   Date : 18/01/2026
+   but :Formulaire des commandes des client des villes M ET P
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +23,7 @@ namespace Exercice_02
         {
             InitializeComponent();
         }
+        private bool filtreActif=false;
 
         #region Événements du formulaire
 
@@ -28,6 +37,20 @@ namespace Exercice_02
             // ====================================================================
             // ORDRE PRÉFÉRABLE
             // ====================================================================
+            /*  SELECT CustomerID, CompanyName, Phone, Country, City
+  FROM Customers
+  WHERE(City LIKE 'M%') OR
+                           (City LIKE 'P%')
+  ORDER BY CompanyName DESC*/
+            /*SELECT o.OrderID, o.CustomerID, o.OrderDate, o.RequiredDate, o.Freight, DATEDIFF(day, o.OrderDate, o.RequiredDate) AS DelaiLivraison, e.LastName + ', ' + e.FirstName AS Vendeur
+  FROM     Orders AS o INNER JOIN
+                    Employees AS e ON o.EmployeeID = e.EmployeeID
+  WHERE  (o.CustomerID IN
+                        (SELECT CustomerID
+                         FROM      Customers
+                         WHERE   (City LIKE 'M%') OR
+                                           (City LIKE 'P%')))
+  ORDER BY o.RequiredDate DESC*/
             try
             {
                 this.taClientsTableAdapter.Fill(this.dsClientCommandeDataSet.dtClientsDataTable);
@@ -104,22 +127,112 @@ namespace Exercice_02
             Console.WriteLine("Clients des villes M et P et leurs commandes respectives");
 
             //Parcourt le dataTable dtClientsDataTable
-            foreach (dsClientCommandeDataSet.dtClientsDataTableRow odtClient in dsClientCommandeDataSet.dtClientsDataTable.Rows)
+            foreach (DataRowView drvClient in dtClientsDataTableBindingSource)
             {
-                
-                Console.WriteLine($"{odtClient.CustomerID,-10} {odtClient.CompanyName,-30} {odtClient.Country,-20} {odtClient.Phone} ");
+                // Récupération de la ligne typée
+                dsClientCommandeDataSet.dtClientsDataTableRow client =
+                    (dsClientCommandeDataSet.dtClientsDataTableRow)drvClient.Row;
 
-                foreach (dsClientCommandeDataSet.dtCommandesDataTableRow odtCommande in dsClientCommandeDataSet.dtCommandesDataTable.Rows)
+                // Affichage du client
+                Console.WriteLine(
+                    $"{client.CustomerID,-6} {client.CompanyName,-30} {client.Country,-5} {client.Phone}"
+                );
+
+                // Accès HIÉRARCHIQUE aux commandes via la relation
+                foreach (dsClientCommandeDataSet.dtCommandesDataTableRow commande
+                         in client.GetdtCommandesDataTableRows())
                 {
-                    //Fait une vérification pour voir si l'id de la clé étrangère est pareille à celle de dtclientCommandes
-                    if (odtCommande.CustomerID == odtClient.CustomerID)
-                    {
-                        Console.WriteLine($"       {odtCommande.OrderID,-9} {odtCommande.OrderDate:MMMM d, yyyy}");
-                    }
+                    Console.WriteLine(
+                        $"       {commande.OrderID,-8} {commande.OrderDate:MMMM d, yyyy}"
+                    );
                 }
             }
 
             #endregion
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            if (!filtreActif)
+            {
+                // Active le filtre
+                dtClientsDataTableBindingSource.Filter =
+                    "Country = 'USA' AND (City LIKE 'M%' OR City LIKE 'P%')";
+
+                dtClientsDataTableBindingSource.Sort = "Phone DESC";
+
+                filtreActif = true;
+            }
+            else
+            {
+                // Désactive le filtre
+                dtClientsDataTableBindingSource.Filter ="";
+                dtClientsDataTableBindingSource.Sort = "";
+
+                filtreActif = false;
+            }
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            imprimerXml();
+        }
+
+        private void imprimerXml()
+        {
+            Console.WriteLine("Clients des villes M et P et leurs commandes respectives");
+
+            try
+            {
+                // Création du DataSet (non typé)
+                DataSet ds = new DataSet();
+
+                // Lecture du fichier XML avec son schéma
+                ds.ReadXml("VentesClientsMetP.xml", XmlReadMode.ReadSchema);
+
+                // Table des clients (première table)
+                DataTable tableClients = ds.Tables[0];
+
+                // Relation clients / commandes
+                DataRelation relation = ds.Relations[0];
+
+                // Parcours des clients
+                foreach (DataRow client in tableClients.Rows)
+                {
+                    Console.WriteLine(
+                        String.Format(
+                            "{0,-6} {1}",
+                            client[0],  // 
+                            client[1]   
+                        )
+                    );
+
+                    // Commandes du client
+                    DataRow[] commandes = client.GetChildRows(relation);
+
+                    foreach (DataRow commande in commandes)
+                    {
+                        Console.WriteLine(
+                            String.Format(
+                                "    {0,-8} {1:MMMM d, yyyy}",
+                                commande[0],   
+                                commande[1]    
+                            )
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Erreur lors de la lecture du fichier XML :\n" + ex.Message,
+                    "Erreur XML",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+
     }
 }
